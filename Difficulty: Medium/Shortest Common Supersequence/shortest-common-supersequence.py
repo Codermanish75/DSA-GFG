@@ -1,0 +1,26 @@
+class Solution:
+    # def solve(self,s1,s2,n,m,dp):
+    #     if n==0 or m==0:
+    #         return 0
+    #     if s1[n-1]==s2[m-1]:
+    #         dp[n][m]=self.solve(s1,s2,n-1,m-1,dp)+1
+    #     else:
+    #         dp[n][m]=max(self.solve(s1,s2,n-1,m,dp),self.solve(s1,s2,n,m-1,dp))
+    #     return dp[n][m]
+        
+    def minSuperSeq(self, s1, s2):
+        # code here
+        n=len(s1)
+        m=len(s2)
+        dp=[[0]*(m+1) for _ in range(n+1)]
+        # lcs=self.solve(s1,s2,n,m,dp)
+        for i in range(1,n+1):
+            for j in range(1,m+1):
+                if s1[i-1]==s2[j-1]:
+                    dp[i][j]=dp[i-1][j-1]+1
+                else:
+                    dp[i][j]=max(dp[i-1][j],dp[i][j-1])
+        
+        
+        return (n+m-dp[n][m])
+        
