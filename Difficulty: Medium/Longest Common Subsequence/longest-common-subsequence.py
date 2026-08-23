@@ -5,7 +5,8 @@ class Solution:
         if dp[n][m]!=-1:
             return dp[n][m]
         if s1[n-1]==s2[m-1]:
-            dp[n][m]= (1+self.solve(s1,s2,n-1,m-1,dp))
+            dp[n][m]= (self.solve(s1,s2,n-1,m-1,dp)+1)
+            
         else:
             dp[n][m]= max(self.solve(s1,s2,n,m-1,dp),self.solve(s1,s2,n-1,m,dp))
         return dp[n][m]
