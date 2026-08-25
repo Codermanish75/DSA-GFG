@@ -14,10 +14,6 @@ class Solution:
 
         return dp[i][j]
 
-            
-            
-            
-            
     def matrixMultiplication(self, arr):
         # code here
         n=len(arr)
